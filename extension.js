@@ -19,8 +19,6 @@ function activate(context) {
   }
 
   const testCaseDir = path.join(workspaceFolder, "test_cases");
-  const inputFilePath = path.join(testCaseDir, "input.txt");
-  const outputFilePath = path.join(testCaseDir, "output.txt");
 
   //Fetching Test Cases
   const testcaseFetcher = vscode.commands.registerCommand(
@@ -52,7 +50,7 @@ function activate(context) {
   const cppCommand = vscode.commands.registerCommand(
     "cph.runTestCasesCpp",
     async () => {
-      await runTestCases("cpp", workspaceFolder, inputFilePath, outputFilePath);
+      await runTestCases("cpp", workspaceFolder, testCaseDir, testCaseDir);
     }
   );
 
@@ -60,12 +58,7 @@ function activate(context) {
   const pythonCommand = vscode.commands.registerCommand(
     "cph.runTestCasesPython",
     async () => {
-      await runTestCases(
-        "python",
-        workspaceFolder,
-        inputFilePath,
-        outputFilePath
-      );
+      await runTestCases("python", workspaceFolder, testCaseDir, testCaseDir);
     }
   );
 

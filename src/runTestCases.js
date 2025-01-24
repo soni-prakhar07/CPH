@@ -66,8 +66,8 @@ function executeTestCase(filePath, testCase, language) {
   const isWindows = os.platform() === "win32";
   const commands = {
     cpp: isWindows
-      ? `g++ "${filePath}" -o temp && temp.exe`
-      : `g++ "${filePath}" -o temp && ./temp`,
+      ? `del temp.exe && g++ "${filePath}" -o temp && temp.exe`
+      : `rm -f temp && g++ "${filePath}" -o temp && ./temp`,
     python: `python "${filePath}"`,
   };
 
