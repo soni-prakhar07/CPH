@@ -1,65 +1,65 @@
-# cph README
+# CPH: Competitive Programming Helper
 
-This is the README for your extension "cph". After writing up a brief description, we recommend including the following sections.
+This project provides an automated solution to fetch and execute test cases for coding problems on LeetCode. The tool allows developers to fetch inputs and expected outputs directly from the problem description on LeetCode, save them as files, and execute their code against these test cases seamlessly.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Fetch Test Cases from LeetCode: Automatically extract input and output test cases from LeetCode problem descriptions.
+- Support for Multiple Languages: Currently supports C++ and Python for code execution.
+- Automated Test Case Execution: Executes the user's solution against the fetched test cases.
+- Detailed Output Logs: Provides a comparison between the expected and actual outputs for each test case.
 
-For example if there is an image subfolder under your extension project workspace:
+## Prerequisites
 
-\!\[feature X\]\(images/feature-x.png\)
+- Node.js: Ensure you have Node.js installed on your machine.
+- MinGW (for C++ on Windows): A compiler like g++ must be available in your PATH.
+- Python: Install Python if you want to execute Python programs.
+- VS Code: The extension integrates with Visual Studio Code.
+- Permissions: Ensure proper permissions in the working directory.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Setup and Installation
 
-## Requirements
+- Clone this repository:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```console
+git clone https://github.com/soni-prakhar07/CPH.git
+cd CPH
+```
 
-## Extension Settings
+- Install Dependencies:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```console
+npm install
+```
 
-For example:
+- Ensure g++ (for C++) and Python are installed and accessible from the terminal.
 
-This extension contributes the following settings:
+- Verify your environment:
+  - Add MinGW or other compilers to your PATH.
+  - Install any necessary VS Code extensions (e.g., C++ or Python support).
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## How to Use
 
-## Known Issues
+- Open extension.js and press F5.
+- Open the leetcode problem in browser.
+- copy the titleSlug from the problem link (eg. for a link: "https://leetcode.com/problems/generate-parentheses/description/", the titleSlug will be "generate-parentheses")
+- Open the Solution you want to test against the testCases in VScode debugging window.
+- Press Ctrl+Shift+P and type "CPH: Fetch Test Cases".
+- Provide the titleSlug and press Enter. The test cases will now be saved locally.
+- Now Run the command "CPH: Run Test Cases C++" for C++ solution and "CPH: Run Test Cases Python" for testing a python solution.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Project Structure
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+```
+ ├── src/
+ │ ├── fetchTestCases.js     # Fetches inputs and expected outputs from LeetCode
+ │ ├── runTestCases.js       # Executes the test cases
+ ├── test_cases/             # Stores the fetched input/output files
+ │ ├── input_1.txt
+ │ ├── output_1.txt
+ │ ├── ...
+ ├── README.md               # Project documentation
+ └── extension.js            # manages commands and function triggers
+```
 
 **Enjoy!**
